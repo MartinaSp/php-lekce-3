@@ -13,13 +13,29 @@
 <br>
 <div class="container">
 
+<?php
 
+$radek = 1;
+$soucet = 1;
+$maximum = 5;
+
+?>
 
     <table class="table table-bordered">
+    
+    <?php
+    while ($radek <= 5) {
+        $sloupec = $soucet + $radek - 1;
+        echo"
         <tr>
-            <td>prvni sloupec</td>
-            <td>druhy sloupec</td>
-        </tr>
+            <td> $radek </td>
+            <td> $sloupec </td>
+        </tr>";
+        
+    $radek = $radek + 1;
+    }
+
+    ?>
     </table>
 
 
