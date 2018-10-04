@@ -25,14 +25,16 @@ $maximum = 5;
     
     <?php
     while ($radek <= 5) {
-        $sloupec = $soucet + $radek - 1;
+
         echo"
         <tr>
             <td> $radek </td>
-            <td> $sloupec </td>
+            <td> $soucet </td>
         </tr>";
         
     $radek = $radek + 1;
+    $soucet = $soucet + $radek;  
+
     }
 
     ?>
