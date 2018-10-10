@@ -15,8 +15,6 @@
 
 <?php
 
-$radek =1;
-
 session_start();
 
 if (isset($_SESSION['login'])) {
@@ -24,11 +22,11 @@ if (isset($_SESSION['login'])) {
     
         echo '<table class="table table-bordered">';
         
-        while ($radek <= 3) {
+        foreach ($_SESSION['data'] as $popisek => $info) {
             echo "
             <tr>
-                <td>$_SESSION</td>
-                
+                <td>$popisek</td>
+                <td>$info</td>
             </tr>";
             $radek = $radek + 1;
         }
