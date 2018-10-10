@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Úkol 2</title><!DOCTYPE html>
+<html lang="en">
+<head>
     <title>Úkol 2</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,35 +16,26 @@
 <br>
 <div class="container">
 
-<?php
-
-$radek = 1;
-$soucet = 1;
-$maximum = 5;
-
-?>
-
-    <table class="table table-bordered">
-    
     <?php
-    while ($radek <= 5) {
-
-        echo"
-        <tr>
-            <td> $radek </td>
-            <td> $soucet </td>
+    $radek = 1;
+    $soucet = 1;
+    $maximum = 5;
+    echo '<table class="table table-bordered">';
+    while ($radek <= $maximum) {
+        if ($radek == 2 || $radek == 4) {
+            $trida = 'class="alert-info"';
+        } else {
+            $trida = '';
+        }
+        echo "<tr $trida>
+            <td>$radek</td>
+            <td>$soucet</td>
         </tr>";
-        
-    $radek = $radek + 1;
-    $soucet = $soucet + $radek;  
-
+        $radek = $radek + 1;
+        $soucet = $radek + $soucet;
     }
-
+    echo '</table>';
     ?>
-    </table>
-
-
-
 
 </div>
 </body>
