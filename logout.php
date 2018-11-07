@@ -12,15 +12,14 @@
 <body>
 <br>
 <div class="container">
-
- <?php
-
-session_start();
-
-    unset($_SESSION['login']);
-    echo '<a href="login.php">Zpět na přihlašovací formulář</a>';
-?>
-
+    <?php
+    session_start();
+    // 8. Vytvořte stránku logout.php:
+    unset($_SESSION['login'], $_SESSION['data']);
+    ?>
+    Odhlášení proběhlo úspěšně
+    <br>
+    <a href="login.php">Zpět na přihlašovací formulář</a>
 </div>
 </body>
 </html>

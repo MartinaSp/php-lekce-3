@@ -12,35 +12,19 @@
 <body>
 <br>
 <div class="container">
-
-<?php
-
-$radek =1;
-
-session_start();
-
-if (isset($_SESSION['login'])) {
-    echo ("Vítejte"." ". $_SESSION['login']);
-    
-        echo '<table class="table table-bordered">';
-        
-        while ($radek <= 3) {
-            echo "
-            <tr>
-                <td>$_SESSION</td>
-                
-            </tr>";
-            $radek = $radek + 1;
+    <?php
+    session_start();
+    // 9. Vytvořte stránku admin.php:
+    if (isset($_SESSION['login'])) {
+        echo 'Vítejte, ' . $_SESSION['login'] . '<br>';
+        foreach ($_SESSION['data'] as $klic => $hodnota) {
+            echo "$klic: $hodnota<br>";
         }
-        echo '</table>';
-    
-    echo '<a href="logout.php">Odhlásit</a>';
-}
-else {
-    echo "Přístup zamítnut";
-}
-?>
-
+        echo '<br><a href="logout.php">Odhlásit</a>';
+    } else {
+        echo 'Přístup zamítnut';
+    }
+    ?>
 </div>
 </body>
 </html>

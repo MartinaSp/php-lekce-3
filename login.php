@@ -12,42 +12,43 @@
 <body>
 <br>
 <div class="container">
-
-    
-<form method="POST">
-
-  <div class="form-group">
-    <label for="exampleInputEmail1">First Name</label>
-    <input name = "name" type="name" class="form-control" id="exampleName" aria-describedby="nameHelp" placeholder="Enter first name">
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-  </div>
-  <button type="submit" class="btn btn-primary">Přihlásit</button>
-
-</form>
-
-<?php
-
-session_start();
-
-$name=$_POST['name'];
-$password=$_POST['password'];
-
-
-if ($name == "admin" && $password ['password'] == "top-secret") {
-    $_SESSION['login'] = $name;
-    $_SESSION['data'] = ['Datum registrace:' => '2.4.2018', 'Souhlas s podmínkami' => 'ANO', 'Počet objednávek' => 23]; {
-    echo '<a href="admin.php">Pokračovat do administrace</a>';
+    <!--
+        4. Na stránce vytvořte pomocí bootstrap přihlašovací formulář
+        5. Formuláři nastavte odesílání metodou POST
+    -->
+    <form method="POST">
+        <div class="form-group">
+            <label for="loginInput">Login:</label>
+            <input type="text" class="form-control" id="loginInput" name="login">
+        </div>
+        <div class="form-group">
+            <label for="passwordInput">Password:</label>
+            <input type="password" class="form-control" id="passwordInput" name="password">
+        </div>
+        <button type="submit" class="btn btn-primary">Přihlásit</button>
+    </form>
+    <br>
+    <?php
+    session_start();
+    // 6. V případě, že byl formulář odeslán, vypište pod ním zadaný login:
+    // if (isset($_POST['login'])) {
+    //     echo 'Zadaný login: ' . $_POST['login'];
+    // }
+    // 7. Nyní nahraďte vypsání loginu kontrolou na správnost přihlašovacích údajů:
+    if (isset($_POST['login'], $_POST['password'])) {
+        if ($_POST['login'] === 'admin' && $_POST['password'] === 'top-secret') {
+            $_SESSION['login'] = $_POST['login'];
+            $_SESSION['data'] = [
+                'Datum registrace:' => '2.4.2018',
+                'Souhlas s podmínkami' => 'ANO',
+                'Počet objednávek' => 23
+            ];
+            echo '<a href="admin.php">Pokračovat do administrace</a>';
+        } else {
+            echo 'Chybné jméno nebo heslo';
+        }
     }
-}
-else {echo "Chybné jméno nebo heslo";
-   
-}
-?>
-
-
+    ?>
 </div>
 </body>
 </html>
